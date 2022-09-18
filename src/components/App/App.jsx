@@ -16,23 +16,13 @@ class App extends Component {
     filter: '',
   }
 
-  // componentDidMount() {
-  //   // console.log('App componentDidMount');
-
-  //   const todos = localStorage.getItem('todos');
-  //   const parsedTodos = JSON.parse(todos);
-
-  //   if (parsedTodos) {
-  //     this.setState({ todos: parsedTodos });
-  //   }
-  // }
-
 componentDidMount() {
-const contactsList = localStorage.getItem('contacts');
-const parsedContactsList = JSON.parse(contactsList);
+
+const contacts = localStorage.getItem('contacts');
+const parsedContactsList = JSON.parse(contacts);
 
 if(parsedContactsList) {
-  this.setState({contactsList: parsedContactsList});
+  this.setState({ contacts: parsedContactsList });
 }
 
 }
@@ -43,7 +33,6 @@ componentDidUpdate(_, prevState) {
   const prevContact = prevState.contacts;
 
   if(nextContact !== prevContact) {
-    console.log('update');
     localStorage.setItem('contacts', JSON.stringify(nextContact))
   }
 }
